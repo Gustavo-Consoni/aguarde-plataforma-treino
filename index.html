@@ -73,7 +73,7 @@
             progress: 0,
             progressInterval: null,
             text: '',
-            textArray : ['Estamos chegando em breve!', 'Uma nova experiência de treino', 'Está prestes a se iniciar'],
+            textArray : ['Estamos chegando em breve', 'Uma nova experiência de treino', 'Está prestes a se iniciar'],
             textIndex: 0,
             charIndex: 0,
             typeSpeed: 100,
@@ -139,9 +139,9 @@
         "
     >
         <div class="relative flex flex-col justify-center items-center h-dvh">
-            <div class="top-10 z-10 absolute space-y-2 w-full">
+            <div class="top-8 z-10 absolute space-y-2 w-full">
                 <img class="mx-auto size-10" src="static/images/colada-sem-fundo-192x192.png">
-                <p class="text-gray-300 text-lg text-center tracking-widest">SPACEPRO</p>
+                <p class="font-medium text-gray-300 text-lg text-center tracking-wide">SPACEPRO</p>
             </div>
 
             <template x-if="window.innerWidth <= 640">
@@ -159,13 +159,13 @@
                         <span class="right-0 absolute bg-white -mr-3 mb-0.5 w-1.5 h-3/4" x-ref="cursor"></span>
                     </div>
                 </div>
-                <div class="relative border border-orange-900 rounded-full w-56 h-3 overflow-hidden">
+                <div class="relative border-2 border-orange-900 rounded-full w-56 h-3 overflow-hidden">
                     <span :style="'width:' + progress + '%'" class="absolute h-full animated-yellow-wave" x-cloak></span>
                 </div>
                 <p class="text-gray-300 text-center tracking-widest" x-text="progress + '%'"></p>
             </div>
 
-            <p class="bottom-10 z-10 absolute w-full text-gray-300 text-lg text-center tracking-widest">spacepro.com.br</p>
+            <p class="bottom-8 z-10 absolute w-full font-medium text-gray-300 text-lg text-center tracking-widest">spacepro.com.br</p>
         </div>
     </body>
 </html>
