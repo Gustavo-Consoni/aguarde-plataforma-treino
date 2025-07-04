@@ -156,10 +156,10 @@
                 <div class="flex justify-center items-center mx-auto max-w-5xl text-center">
                     <div class="relative flex justify-center items-center h-auto">
                         <p class="font-teko font-semibold text-white text-2xl sm:text-5xl text-center tracking-widest" x-text="text !== '' ? text : '\u00A0'"></p>
-                        <span class="right-0 absolute bg-white -mr-3 mb-0.5 w-1.5 h-3/4" x-ref="cursor"></span>
+                        <span class="right-0 absolute bg-white -mr-3 mb-1 w-1.5 h-3/4" x-ref="cursor"></span>
                     </div>
                 </div>
-                <div class="relative border-2 border-orange-900 rounded-full w-56 h-3 overflow-hidden">
+                <div class="relative border-2 border-orange-900 rounded-full w-56 sm:w-80 h-3 overflow-hidden">
                     <span :style="'width:' + progress + '%'" class="absolute h-full animated-yellow-wave" x-cloak></span>
                 </div>
                 <p class="text-gray-300 text-center tracking-widest" x-text="progress + '%'"></p>
