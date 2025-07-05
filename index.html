@@ -73,7 +73,7 @@
             progress: 0,
             progressInterval: null,
             text: '',
-            textArray : ['Estamos chegando em breve', 'Uma nova experiência de treino', 'Está prestes a se iniciar'],
+            textArray : ['Estamos chegando em breve', 'Uma nova experiência de treino', 'Chegou a hora de subir o nível'],
             textIndex: 0,
             charIndex: 0,
             typeSpeed: 100,
@@ -88,7 +88,7 @@
                 if (progress >= 85) {
                     clearInterval(progressInterval);
                 }
-            }, 100);
+            }, 200);
 
             $nextTick(() => {
                 let typingInterval = setInterval(startTyping, $data.typeSpeed);
