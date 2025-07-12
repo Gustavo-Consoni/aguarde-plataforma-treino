@@ -88,7 +88,7 @@ document.addEventListener("alpine:init", () => {
                 }),
             })
             .then(res => res.json())
-            .then(res => alert("Enviado com sucesso!"))
+            .then(res => this.modal = false)
         },
 
     }))

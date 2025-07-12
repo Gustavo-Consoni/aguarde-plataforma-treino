@@ -10,7 +10,7 @@
         <meta property="og:image:width" content="1200">
         <meta property="og:image:height" content="630">
         <meta property="og:url" content="https://aguarde.spaceprobr.com.br">
-        <meta property="og:image" content="https://aguarde.spaceprobr.com.br/static/images/og-image.jpg">
+        <meta property="og:image" content="https://aguarde.spaceprobr.com.br/static/images/og.jpg">
         <meta property="og:description" content="A melhor plataforma de treino para resultados consistentes">
         <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
         <!-- Tailwindcss -->
@@ -113,7 +113,7 @@
                     <input
                         class="bg-transparent p-2.5 rounded-sm outline-none ring-1 ring-gray-700 focus:ring-blue-500 ring-inset w-full text-gray-300 text-xs duration-300"
                         type="text"
-                        name="name"
+                        x-model="name"
                         placeholder="Nome"
                         maxlength="100"
                         required
@@ -121,7 +121,7 @@
                     <input
                         class="bg-transparent my-4 p-2.5 rounded-sm outline-none ring-1 ring-gray-700 focus:ring-blue-500 ring-inset w-full text-gray-300 text-xs duration-300"
                         type="email"
-                        name="email"
+                        x-model="email"
                         placeholder="Email"
                         maxlength="100"
                         required
@@ -129,7 +129,7 @@
                     <input
                         class="bg-transparent p-2.5 rounded-sm outline-none ring-1 ring-gray-700 focus:ring-blue-500 ring-inset w-full text-gray-300 text-xs duration-300"
                         type="text"
-                        name="phone"
+                        x-model="phone"
                         placeholder="Telefone"
                         x-mask="(99) 99999-9999"
                         required
