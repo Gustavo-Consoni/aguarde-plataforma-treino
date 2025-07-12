@@ -16,10 +16,7 @@ document.addEventListener("alpine:init", () => {
         pauseEnd: 1500,
         pauseStart: 0,
         direction: "forward",
-
-        name: "",
-        email: "",
-        phone: "",
+        loading: false,
         modal: false,
 
         init() {
@@ -77,18 +74,19 @@ document.addEventListener("alpine:init", () => {
             })
         },
 
-        submitForm() {
+        submitForm(event) {
+            this.loading = true
+            const form = event.target
+            const data = new FormData(form)
             fetch("https://script.google.com/macros/s/AKfycbx09Q2djGfeVz_Vs9W_iZy3BGGupINwlcpNe6yMwzE_Pyi_VAytycS-kpuTe85JPAzong/exec", {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    name: this.name,
-                    email: this.email,
-                    phone: this.phone,
-                }),
+                body: data,
             })
             .then(res => res.json())
-            .then(res => this.modal = false)
+            .then(res => {
+                this.loading = false
+                this.modal = false
+            })
         },
 
     }))
