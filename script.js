@@ -74,19 +74,16 @@ document.addEventListener("alpine:init", () => {
             })
         },
 
-        submitForm(event) {
+        async submitForm(event) {
             this.loading = true
             const form = event.target
             const data = new FormData(form)
-            fetch("https://script.google.com/macros/s/AKfycbx09Q2djGfeVz_Vs9W_iZy3BGGupINwlcpNe6yMwzE_Pyi_VAytycS-kpuTe85JPAzong/exec", {
+            await fetch("https://script.google.com/macros/s/AKfycbx09Q2djGfeVz_Vs9W_iZy3BGGupINwlcpNe6yMwzE_Pyi_VAytycS-kpuTe85JPAzong/exec", {
                 method: "POST",
                 body: data,
             })
-            .then(res => res.json())
-            .then(res => {
-                this.loading = false
-                this.modal = false
-            })
+            this.loading = false
+            this.modal = false
         },
 
     }))
