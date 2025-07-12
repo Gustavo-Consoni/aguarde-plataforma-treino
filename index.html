@@ -106,9 +106,9 @@
         <div class="z-50 fixed inset-0 flex justify-center items-center bg-black/50" x-show="modal" x-transition.opacity.duration.500ms x-cloak>
             <div class="bg-[#212121] max-sm:mx-6 p-6 border border-[#323232] rounded-lg w-full max-w-sm overflow-hidden" @mousedown.outside="modal = false">
                 <form @submit.prevent="submitForm(event)">
-                    <div class="space-y-1 mb-8">
-                        <p class="font-teko font-semibold text-white text-2xl text-center">RESERVAR VAGA</p>
-                        <p class="text-gray-300 text-xs text-center">Essas informações serão utilizadas exclusivamente para notificá-lo sobre o lançamento da plataforma</p>
+                    <div class="space-y-1 mb-8 text-center">
+                        <p class="font-teko font-semibold text-white text-2xl">RESERVAR VAGA</p>
+                        <p class="text-gray-300 text-xs">Essas informações serão utilizadas exclusivamente para notificá-lo sobre o lançamento da plataforma</p>
                     </div>
                     <input
                         class="bg-transparent p-2.5 rounded-sm outline-none ring-1 ring-gray-700 focus:ring-blue-500 ring-inset w-full text-gray-300 text-xs duration-300"
@@ -151,5 +151,20 @@
                 </form>
             </div>
         </div>
+
+        <div :class="{ 'translate-y-28': show }" class="-top-20 z-50 fixed inset-x-6 flex justify-center duration-500">
+            <div class="flex gap-3 bg-[#212121] p-4 border border-[#323232] rounded-lg w-full max-w-md overflow-hidden">
+                <div class="bg-green-600 mt-1 p-0.5 rounded-full size-fit">
+                    <svg class="size-3 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor">
+                        <path fill-rule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" clip-rule="evenodd" />
+                    </svg>
+                </div>
+                <div class="space-y-1">
+                    <p class="font-medium text-white text-sm">Sucesso</p>
+                    <p class="text-gray-300 text-xs">Em breve você receberá novidades por e-mail</p>
+                </div>
+            </div>
+        </div>
+
     </body>
 </html>

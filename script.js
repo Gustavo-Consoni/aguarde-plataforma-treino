@@ -18,6 +18,8 @@ document.addEventListener("alpine:init", () => {
         direction: "forward",
         loading: false,
         modal: false,
+        show: false,
+        message: "",
 
         init() {
             this.progressInterval = setInterval(() => {
@@ -78,12 +80,20 @@ document.addEventListener("alpine:init", () => {
             this.loading = true
             const form = event.target
             const data = new FormData(form)
-            await fetch("https://script.google.com/macros/s/AKfycbx09Q2djGfeVz_Vs9W_iZy3BGGupINwlcpNe6yMwzE_Pyi_VAytycS-kpuTe85JPAzong/exec", {
-                method: "POST",
-                body: data,
-            })
-            this.loading = false
-            this.modal = false
+
+            try {
+                const res = await fetch("https://script.google.com/macros/s/AKfycbx09Q2djGfeVz_Vs9W_iZy3BGGupINwlcpNe6yMwzE_Pyi_VAytycS-kpuTe85JPAzong/exec", {
+                    method: "POST",
+                    body: data,
+                })
+                this.modal = false
+                this.show = true
+                setTimeout(() => this.show = false, 5000)
+            } catch (error) {
+                alert("Ocorreu um erro ao enviar. Tente novamente.")
+            } finally {
+                this.loading = false
+            }
         },
 
     }))
