@@ -35,32 +35,34 @@ document.addEventListener("alpine:init", () => {
                 const startTyping = () => {
                     let current = this.textArray[this.textIndex]
 
-                    if (this.charIndex > current.length) {
-                        this.direction = "backward"
-                        clearInterval(typingInterval)
-                        setTimeout(() => {
-                            typingInterval = setInterval(startTyping, this.typeSpeed)
-                        }, this.pauseEnd)
-                        return
-                    }
-
-                    this.text = current.substring(0, this.charIndex)
-
                     if (this.direction === "forward") {
-                        this.charIndex += 1
-                    } else {
-                        if (this.charIndex === 0) {
-                            this.direction = "forward"
+                        this.text = current.substring(0, this.charIndex)
+                        if (this.charIndex < current.length) {
+                            this.charIndex += 1
+                        } else {
+                            clearInterval(typingInterval)
+                            setTimeout(() => {
+                                this.direction = "backward"
+                                typingInterval = setInterval(startTyping, this.typeSpeed)
+                            }, this.pauseEnd)
+                        }
+                    }
+                    else if (this.direction === "backward") {
+                        this.text = current.substring(0, this.charIndex)
+                        if (this.charIndex > 0) {
+                            this.charIndex -= 1
+                        } else {
                             clearInterval(typingInterval)
                             setTimeout(() => {
                                 this.textIndex += 1
                                 if (this.textIndex >= this.textArray.length) {
                                     this.textIndex = 0
                                 }
+                                this.direction = "forward"
+                                this.charIndex = 0
                                 typingInterval = setInterval(startTyping, this.typeSpeed)
                             }, this.pauseStart)
                         }
-                        this.charIndex -= 1
                     }
                 }
 
@@ -82,7 +84,7 @@ document.addEventListener("alpine:init", () => {
             const data = new FormData(form)
 
             try {
-                const res = await fetch("https://script.google.com/macros/s/AKfycbx09Q2djGfeVz_Vs9W_iZy3BGGupINwlcpNe6yMwzE_Pyi_VAytycS-kpuTe85JPAzong/exec", {
+                await fetch("https://script.google.com/macros/s/AKfycbx09Q2djGfeVz_Vs9W_iZy3BGGupINwlcpNe6yMwzE_Pyi_VAytycS-kpuTe85JPAzong/exec", {
                     method: "POST",
                     body: data,
                 })
